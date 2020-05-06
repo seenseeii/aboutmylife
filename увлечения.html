@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Мои увлечения</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.header {
+    padding: 80px;
+    text-align: center;
+    background: #FA8072;
+    color: white;
+}
+
+.header h1 {
+    font-size: 50px;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #8B0000;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a.right {
+    float: right;
+}
+
+.navbar a:hover {
+    background-color: #FFE4E1;
+    color: black;
+}
+
+.row {  
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side {
+    flex: 30%;
+    background-color: #E46C6C;
+    padding: 30px;
+}
+
+.main {   
+    flex: 70%;
+    background-color: #E18484;
+    padding: 20px;
+}
+
+.img {
+    width: 100%;
+    padding: 20px;
+}
+
+@media screen and (max-width: 700px) {
+    .row {   
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .navbar a {
+        float: none;
+        width:100%;
+    }
+}
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+#myImg:hover {opacity: 0.7;}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1; 
+    padding-top: 100px; 
+    left: 0;
+    top: 0;
+    width: 100%; 
+    height: 100%; 
+    overflow: auto; /
+    background-color: rgb(0,0,0); 
+    background-color: rgba(0,0,0,0.9); 
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+}
+
+#caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+}
+
+.modal-content, #caption {    
+    -webkit-animation-name: zoom;
+    -webkit-animation-duration: 0.6s;
+    animation-name: zoom;
+    animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+    from {-webkit-transform:scale(0)} 
+    to {-webkit-transform:scale(1)}
+}
+
+@keyframes zoom {
+    from {transform:scale(0)} 
+    to {transform:scale(1)}
+}
+
+.close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Мои увлечения и навыки</h1>
+</div>
+
+<div class="navbar">
+  <a href="учеба.html">Моя школьная жизнь</a>
+  <a href="увлечения.html">Мои увлечения</a>
+  <a href="я и друзья.html">Я и мои друзья</a>
+  <a href="index.html" class="right">На главную страницу</a>
+</div>
+
+<div class="row">
+  <div class="side">
+      <h2>Немного обо мне</h2>
+      <h5>Моя фотография:</h5>
+      <div class="img"><img src="IMG_20181013_235604903.jpg" height="400" width="250"></div>
+      <p>Это фотография сделана во Львове во время школьной поездки</p>
+      <p>Мои социальные сети:</p>
+      <p><a href="https://m.facebook.com/login/?locale2=ru_RU" target="_blank"><img src="512px-Facebook_F_icon.svg.png" height="50" width="50"></a><a href="https://www.instagram.com/accounts/login/?hl=ru" target="_blank" style="padding: 20px;"><img src="Instagram_icon.png" height="50" width="50"></a>
+  </div>
+  <div class="main">
+      <h2>Ну, моё главное увлечение это рисование</h2>
+      <h5>Вот несколько моих работ</h5>
+      <div class="img"><img id="myImg" src="IMG-03761ce180e09bd77929f9a066a6afdd-V.jpg" alt="Snow" style="width:100%;max-width:300px"></div>
+      <p>"Зимний мотив"( его вы можете увеличить, нажав на картинку)</p>
+      <br>
+      <div class="img"><img src="IMG_0159.jpg" height="200" width="400"></div>
+      <p>"Метель"</p>
+      <br>
+      <div class="img"><img src="IMG_0157.jpg" height="300" width="200"></div>
+      <p>"Натюрморт"</p>
+
+      <div id="myModal" class="modal">
+        <span class="close">×</span>
+        <img class="modal-content" id="img01">
+        <div id="caption"></div>
+      </div>
+  </div>
+</div>
+
+<script>
+
+var modal = document.getElementById('myModal');
+
+var img = document.getElementById('myImg');
+var modalImg = document.getElementById("img01");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+    modal.style.display = "block";
+    modalImg.src = this.src;
+    captionText.innerHTML = this.alt;
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() { 
+    modal.style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
+
+

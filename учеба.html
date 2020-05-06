@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Моя школьная жизнь</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+}
+
+.header {
+    padding: 80px;
+    text-align: center;
+    background: #FA8072;
+    color: white;
+}
+
+.header h1 {
+    font-size: 50px;
+}
+
+.navbar {
+    overflow: hidden;
+    background-color: #8B0000;
+}
+
+.navbar a {
+    float: left;
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar a.right {
+    float: right;
+}
+
+.navbar a:hover {
+    background-color: #FFE4E1;
+    color: black;
+}
+
+.row {  
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.side {
+    flex: 30%;
+    background-color: #E46C6C;
+    padding: 30px;
+}
+
+.main {   
+    flex: 70%;
+    background-color: #E18484;
+    padding: 20px;
+}
+
+.img {
+    width: 100%;
+    padding: 20px;
+}
+
+@media screen and (max-width: 700px) {
+    .row {   
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .navbar a {
+        float: none;
+        width:100%;
+    }
+}
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Моя школьная жизнь</h1>
+</div>
+
+<div class="navbar">
+  <a href="учеба.html">Моя школьная жизнь</a>
+  <a href="увлечения.html">Мои увлечения</a>
+  <a href="я и друзья.html">Я и мои друзья</a>
+  <a href="index.html" class="right">На главную страницу</a>
+</div>
+
+<div class="row">
+  <div class="side">
+      <h2>Немного обо мне</h2>
+      <h5>Моя фотография:</h5>
+      <div class="img"><img src="IMG_20181013_235604903.jpg" height="400" width="250"></div>
+      <p>Это фотография сделана во Львове во время школьной поездки</p>
+      <p>Мои социальные сети:</p>
+      <p><a href="https://m.facebook.com/login/?locale2=ru_RU" target="_blank"><img src="512px-Facebook_F_icon.svg.png" height="50" width="50"></a><a href="https://www.instagram.com/accounts/login/?hl=ru" target="_blank" style="padding: 20px;"><img src="Instagram_icon.png" height="50" width="50"></a>
+  </div>
+  <div class="main">
+      <h2>Ну о моей школьной жизни можно и не говорить.</h2>
+      <h5>Мне нечем гордиться.</h5>
+      <p>Однако я горжусь, что я сделала свой личный сайт. Ну хоть это радует.</p>
+      <p>Поэтому, лучше помотрите мои увлечения.</p>
+  </div>
+</div>
+
+</body>
+</html>
+
+
+
